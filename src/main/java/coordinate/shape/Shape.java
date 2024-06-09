@@ -1,12 +1,10 @@
 package coordinate.shape;
 
 import coordinate.Point;
-import coordinate.ShapeType;
 
 public interface Shape {
-    void calculateArea();
 
-    ShapeType getType();
+    void calculateArea();
 
     Double getArea();
 
@@ -15,4 +13,5 @@ public interface Shape {
                 - point2.getY(), 2));
     }
 
+    String getOutputText();
 }

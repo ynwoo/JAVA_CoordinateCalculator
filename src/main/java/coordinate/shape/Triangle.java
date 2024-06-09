@@ -1,7 +1,6 @@
 package coordinate.shape;
 
 import coordinate.Point;
-import coordinate.ShapeType;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,10 +14,13 @@ public class Triangle implements Shape {
         pointList.add(p1);
         pointList.add(p2);
         pointList.add(p3);
+
+        calculateArea();
     }
 
     public Triangle(List<Point> pointList) {
         this.pointList = pointList;
+        calculateArea();
     }
 
     @Override
@@ -31,12 +33,12 @@ public class Triangle implements Shape {
     }
 
     @Override
-    public ShapeType getType() {
-        return ShapeType.Triangle;
+    public Double getArea() {
+        return area;
     }
 
     @Override
-    public Double getArea() {
-        return area;
+    public String getOutputText() {
+        return "삼각형의 넓이는 ";
     }
 }

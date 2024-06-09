@@ -1,7 +1,6 @@
 package coordinate.shape;
 
 import coordinate.Point;
-import coordinate.ShapeType;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -17,10 +16,13 @@ public class Square implements Shape {
         pointList.add(p2);
         pointList.add(p3);
         pointList.add(p4);
+
+        calculateArea();
     }
 
     public Square(List<Point> pointList) {
         this.pointList = pointList;
+        calculateArea();
     }
 
     public void calculateArea() {
@@ -33,13 +35,12 @@ public class Square implements Shape {
         area = lineCandidate.get(0) * lineCandidate.get(1);
     }
 
-    @Override
-    public ShapeType getType() {
-        return ShapeType.SQUARE;
-    }
-
-
     public Double getArea() {
         return area;
+    }
+
+    @Override
+    public String getOutputText() {
+        return "사각형의 넓이는 ";
     }
 }
