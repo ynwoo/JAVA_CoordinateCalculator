@@ -86,4 +86,16 @@ class CoordinateCalculatorViewTest {
         assertThat(isValid2).isFalse();
         assertThat(isValid3).isFalse();
     }
+
+    @Test
+    void 직사각형을_검증한다() {
+        // given
+        String userInputText = "(10,10)-(22,10)-(22,18)-(11,18)";
+
+        // when
+        boolean isValid = coordinateCalculatorView.validateUserInput(userInputText);
+
+        // then
+        assertThat(isValid).isFalse();
+    }
 }
