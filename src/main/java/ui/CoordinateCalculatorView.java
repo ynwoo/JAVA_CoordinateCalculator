@@ -11,17 +11,25 @@ public class CoordinateCalculatorView {
     private final String INPUT_MESSAGE = "좌표를 입력하세요.";
     private final String ERROR_MESSAGE = "잘못된 값을 입력했습니다.";
     private final Integer MAX_NUMBER = 24;
-    private static final String SQUARE_PATTERN = "\\((\\d+),(\\d+)\\)-\\((\\d+),(\\d+)\\)-\\((\\d+),(\\d+)\\)-\\((\\d+),(\\d+)\\)";
-    private static final String TRIANGLE_PATTERN = "\\((\\d+),(\\d+)\\)-\\((\\d+),(\\d+)\\)-\\((\\d+),(\\d+)\\)";
-    private static final String LINE_PATTERN = "\\((\\d+),(\\d+)\\)-\\((\\d+),(\\d+)\\)";
+    private final utils.Pattern pattern = utils.Pattern.COORDINATE;
+    private static String SQUARE_PATTERN;
+    private static String TRIANGLE_PATTERN;
+    private static String LINE_PATTERN;
 
     public CoordinateCalculatorView() {
         scanner = new Scanner(System.in);
+        SQUARE_PATTERN =
+                pattern.getPattern() + "-" + pattern.getPattern() + "-" + pattern.getPattern() + "-"
+                        + pattern.getPattern();
+        TRIANGLE_PATTERN =
+                pattern.getPattern() + "-" + pattern.getPattern() + "-" + pattern.getPattern();
+        LINE_PATTERN = pattern.getPattern() + "-" + pattern.getPattern();
     }
 
     public String inputCoordinates() {
         System.out.println(INPUT_MESSAGE);
         return scanner.nextLine();
+
     }
 
     public void printResult(String result) {
